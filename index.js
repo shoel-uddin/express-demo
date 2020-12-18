@@ -13,15 +13,16 @@ app.set('view engine', 'html');
 
 const PORT = 3000
 const homeRouter = require('./routers/homeRouter')
-
+const movieRouter = require('./routers/movieRouter')
+const data = require('./data.json')
 
 app.use(logger)
-
-
 app.use('/', homeRouter)
 // app.get('/',(req,res)=>{
 //     res.send(`<h1>Hello World!</h1>`)
 // })
+
+app.use('/movies', movieRouter)
 
 server.listen(PORT, ()=>{
     console.log(`Listening at port ${PORT}`)
